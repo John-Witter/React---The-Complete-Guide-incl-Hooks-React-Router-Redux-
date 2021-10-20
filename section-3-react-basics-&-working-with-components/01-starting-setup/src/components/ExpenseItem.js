@@ -1,4 +1,5 @@
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "./ExpenseDate";    
+import Card from './Card'
 import "./ExpenseItem.css";
 
 // display amount of expense and date
@@ -9,18 +10,18 @@ const expenseTitle = props.title;
 const expenseAmount = props.amount;
 
     return (
-        <div className="expense-item">
+        <Card className="expense-item">
+            {/* "date" is name of the the prop passed into ExpenseDate*/}
+            {/* b/c ExpenseDate uses "props.date" */}
+            {/* date={props.date} => here, props.date refers to ExpenseItem(props) */}
             <div>
-{/* "date" is name of the the prop passed into ExpenseDate*/}
-{/* b/c ExpenseDate uses "props.date" */}
-{/* date={props.date} => here, props.date refers to ExpenseItem(props) */}
                 <ExpenseDate date={props.date} />
             </div>
             <div className="expense-item__description">
                 <h2>{expenseTitle}</h2>
                 <div className="expense-item__price">{expenseAmount}</div>
             </div>
-        </div>
+        </Card>
     );
 }
 

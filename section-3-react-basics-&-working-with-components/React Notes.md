@@ -84,3 +84,29 @@ Vanilla JS DOM manipulation is imperaive
     }
         
 ```
+
+
+/*PROPS CLASSNAME */
+/*
+    for Card to use the className of ExpenseItem, or any other component:
+    use:
+        'props.className'    
+*/
+
+## Props Children
+
+    'children' is a reserved name
+
+    the value of the 'children' prop 
+    is the content between the opening and closing tags of the custom component
+
+        in this case (for ExpenseItem) 'children' refers to the divs and h2 
+        b/t the opening and closing Card tags
+
+## Props className for styling
+
+    for Card to use the className of ExpenseItem, or any other component:
+    use:
+        'props.className'    
+            
+        * props are given access to 'className' by default
