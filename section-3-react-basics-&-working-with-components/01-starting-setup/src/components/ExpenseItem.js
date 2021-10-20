@@ -1,25 +1,20 @@
+import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
 // display amount of expense and date
 
 function ExpenseItem(props) {
 
-    // const expenseDate = new Date(2021, 2, 28); //2 = March, month[0] = January
-    // const expenseTitle = "Car Insurance";
-    // const expenseAmount = 294.67;
-    const day = props.date.toLocaleString("en-US", { day: "2-digit" }); 
-    const month = props.date.toLocaleString("en-US", { month: "long" }); 
-    const year = props.date.getFullYear(); 
-    const expenseTitle = props.title;
-    const expenseAmount = props.amount;
+const expenseTitle = props.title;
+const expenseAmount = props.amount;
 
     return (
         <div className="expense-item">
-            {/* Date is an object and can't be rendered as such */}
             <div>
-                <div>{month}</div>
-                <div>{year}</div>
-                <div>{day}</div>
+{/* "date" is name of the the prop passed into ExpenseDate*/}
+{/* b/c ExpenseDate uses "props.date" */}
+{/* date={props.date} => here, props.date refers to ExpenseItem(props) */}
+                <ExpenseDate date={props.date} />
             </div>
             <div className="expense-item__description">
                 <h2>{expenseTitle}</h2>
