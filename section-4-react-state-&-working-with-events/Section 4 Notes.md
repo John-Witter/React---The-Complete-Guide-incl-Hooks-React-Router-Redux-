@@ -14,3 +14,9 @@
 ## Convention for Naming Event Handler Functions
     end with "Handler"    
     ex: clickHandler, submitHandler
+
+
+## React registers state change through the component function for which the state change was registered
+
+    Only the component function which triggered the state change is updated.
+    Only the information which differs from the actual DOM will be re-rendered.
