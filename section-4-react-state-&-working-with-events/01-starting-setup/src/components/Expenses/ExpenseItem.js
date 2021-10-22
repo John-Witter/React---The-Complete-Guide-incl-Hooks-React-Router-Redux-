@@ -19,9 +19,6 @@ function ExpenseItem(props) {
 
     return (
         <Card className="expense-item">
-            {/* "date" is name of the the prop passed into ExpenseDate*/}
-            {/* b/c ExpenseDate uses "props.date" */}
-            {/* date={props.date} => here, props.date refers to ExpenseItem(props) */}
             <div>
                 <ExpenseDate date={props.date} />
             </div>
