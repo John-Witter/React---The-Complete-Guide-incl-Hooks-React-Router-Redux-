@@ -41,8 +41,22 @@ const ExpenseForm = () => {
         setEnteredDate(e.target.value);
     };
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+
+        // combine all entered data
+        // the one state approach would already be this
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate + "T00:00:00"),
+        };
+
+        console.log('expenseDate:', expenseData)
+    };
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
