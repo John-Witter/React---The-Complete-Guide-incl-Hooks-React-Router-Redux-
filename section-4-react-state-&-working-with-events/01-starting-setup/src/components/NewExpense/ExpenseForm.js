@@ -3,7 +3,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState("");
     const [enteredAmount, setEnteredAmount] = useState("");
     const [enteredDate, setEnteredDate] = useState("");
@@ -44,15 +44,14 @@ const ExpenseForm = () => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        // combine all entered data
-        // the one state approach would already be this
         const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
             date: new Date(enteredDate + "T00:00:00"),
         };
 
-        console.log("expenseDate:", expenseData);
+        // execute here to access the fn in NewExpense
+        props.onSaveExpenseData(expenseData);
 
         setEnteredTitle("");
         setEnteredAmount("");
