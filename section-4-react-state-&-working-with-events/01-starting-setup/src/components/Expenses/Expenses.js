@@ -1,11 +1,11 @@
 import { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
+import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
-import ExpensesFilter from "./ExpensesFilter";
 
 function Expenses({ expenses }) {
-    const [selectedYear, setSelectedYear] = useState("");
+    const [filteredYear, setFilteredYear] = useState("2020");
 
     const renderExpenses = expenses.map((expense) => {
         return (
@@ -18,15 +18,20 @@ function Expenses({ expenses }) {
         );
     });
 
-    const handleYearSelect = (year) => {
-        setSelectedYear(year)
+    const filterYearHandler = (year) => {
+        setFilteredYear(year);
         console.log("year:", year);
     };
 
     return (
         <div>
-            <ExpensesFilter onSelectYear={handleYearSelect} />
-            <Card className="expenses">{renderExpenses}</Card>
+            <Card className="expenses">
+                <ExpensesFilter
+                    selected={filteredYear}
+                    onSelectYear={filterYearHandler}
+                />
+                {renderExpenses}
+            </Card>
         </div>
     );
 }
