@@ -47,3 +47,12 @@ return (
 React guarantees that the state snapshot given via updating w/prevState, in the 
 inner function will always be the latest state snapshot, keeping all schedule
 state updates in mind.
+
+
+## Lifting State Up
+
+* We can't pass data to sibling components.
+* So far, we can only pass data from parent -> child and child -> parent
+* Use props to send data from child1 -> parent
+    * parent can now send data from child1 to child2, which is a sibling to child1
+* [What is "Lifing State Up" in React?](https://www.freecodecamp.org/news/what-is-lifting-state-up-in-react/) freeCodeCamp article
