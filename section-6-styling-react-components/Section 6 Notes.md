@@ -65,7 +65,25 @@ return (
 }
 ```
 
-### STEPS:
+#### STEPS:
 1. Specify some goal
 2. Specify some alternative states (ex: sometimes have className of 'invalid')
 3. Let React manage the DOM
+
+
+### Regular CSS classes become globally scoped once 1 component imports them.
+    This can happen in accidental duplicated CSS class names which will cause
+    style overlapping.
+
+## [Styled Components](https://styled-components.com/)
+    A package to help build components with certain styles attached to them.
+    The styles only affect the components they're attached to.
+
+* Installation:
+* ```npm install --save styled-components```
+
+[Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+
+* The ```styled``` package has methods for all HTML elements!
+* For pseudo-selectors (e.g.: ```.button:focus```) use the ampersand symbo (```&```)
+* The Styled Components package generates unique class names for CSS styles
