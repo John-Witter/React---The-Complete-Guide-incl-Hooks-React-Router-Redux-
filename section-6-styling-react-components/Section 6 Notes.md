@@ -38,3 +38,34 @@ return (
     />
 );
 ```
+
+
+## Inline styles suck 
+
+## Setting CSS classes Dynamcally
+* Set up the CSS classses in a separate folder like normal.
+* Apply the style classes if needed 
+
+
+```javascript
+/* in CourseInput.js */
+<div className={`form-control ${!isValid ? 'invalid' : ''}`}>
+
+
+/* in CourseInput.css */
+/* if the class 'invalid' is on the same element as form-control */
+    /* target the input  */
+.form-control.invalid input {
+    border-color: red;
+    background: #ffd7d7;
+}
+
+.form-control.form-control.invalid label {
+    color: red;
+}
+```
+
+### STEPS:
+1. Specify some goal
+2. Specify some alternative states (ex: sometimes have className of 'invalid')
+3. Let React manage the DOM

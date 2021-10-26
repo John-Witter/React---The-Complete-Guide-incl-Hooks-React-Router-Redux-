@@ -22,3 +22,14 @@
   background: #fad0ec;
   border-color: #8b005d;
 }
+
+/* if the class 'invalid' is on the same element as form-control */
+    /* target the input  */
+.form-control.invalid input {
+    border-color: red;
+    background: #ffd7d7;
+}
+
+.form-control.form-control.invalid label {
+    color: red;
+}
