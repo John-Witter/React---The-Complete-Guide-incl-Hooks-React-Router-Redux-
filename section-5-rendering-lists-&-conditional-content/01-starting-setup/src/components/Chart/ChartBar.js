@@ -1,4 +1,4 @@
-import "./CharBar.css";
+import "./ChartBar.css";
 
 // receives props from Chart
 // bar__fill height depends on the data/value received for maxValue
@@ -15,7 +15,7 @@ const ChartBar = (props) => {
 
     return (
         <div className="chart-bar">
-            <div className="char-bar__inner">
+            <div className="chart-bar__inner">
                 <div
                     className="chart-bar__fill"
                     style={{ height: barFillHeight }}
