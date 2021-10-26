@@ -18,6 +18,8 @@
 ```javascript
 // in NewExpense.js
 // render button if showForm is false, else render form
+// if type passed from the return below or from ExpenseFrom ='button'
+        // set showForm to false
 const buttonOrForm = (type) => {
     if (type === "button") {
         setShowForm(false);
