@@ -1,29 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import Button from "../../UI/Button/Button";
+import "./CourseInput.css";
 
-const CourseInput = props => {
-  const [enteredValue, setEnteredValue] = useState('');
+const CourseInput = (props) => {
+    const [enteredValue, setEnteredValue] = useState("");
+    // boolean to check for valid input
+    const [isValid, setIsValid] = useState(true);
 
-  const goalInputChangeHandler = event => {
-    setEnteredValue(event.target.value);
-  };
+    const goalInputChangeHandler = (event) => {
+        if (event.target.value.trim().length > 0) {
+            setIsValid(true)
+        }
+        setEnteredValue(event.target.value);
+    };
 
-  const formSubmitHandler = event => {
-    event.preventDefault();
-    props.onAddGoal(enteredValue);
-  };
+    const formSubmitHandler = (event) => {
+        event.preventDefault();
+        // trim() removes excess whitespace at beginning or end of text
+        // if enteredValue is blank, don't do anything on submit
+        // isValid => false
+        if (enteredValue.trim().length === 0) {
+            setIsValid(false);
+            return;
+        }
+        setIsValid(true);
+        props.onAddGoal(enteredValue);
+        setEnteredValue("");
+    };
 
-  return (
-    <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        <label>Course Goal</label>
-        <input type="text" onChange={goalInputChangeHandler} />
-      </div>
-      <Button type="submit">Add Goal</Button>
-    </form>
-  );
+    return (
+        <form onSubmit={formSubmitHandler}>
+            <div className="form-control">
+                <label style={{ color: !isValid ? "red" : "black" }}>
+                    Course Goal
+                </label>
+                <input
+                    type="text"
+                    value={enteredValue}
+                    onChange={goalInputChangeHandler}
+                    style={{
+                        borderColor: !isValid ? "red" : "#ccc",
+                        background: !isValid ? "#ffdddd" : "transparent",
+                    }}
+                />
+            </div>
+            <Button type="submit">Add Goal</Button>
+        </form>
+    );
 };
 
 export default CourseInput;
