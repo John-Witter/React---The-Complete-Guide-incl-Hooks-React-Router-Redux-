@@ -7,37 +7,16 @@ const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState("");
     const [enteredAmount, setEnteredAmount] = useState("");
     const [enteredDate, setEnteredDate] = useState("");
-
-    // refactor to use a single state obj
-    // const [userInput, setUserInput] = useState({
-    //     enteredTitle: "",
-    //     enteredAmount: "",
-    //     enteredDate: "",
-    // });
-
+    
     const titleChangeHandler = (e) => {
-        // setUserInput((prevState) => {
-        //     return {
-        //         ...prevState,
-        //         enteredTitle:e.target.value
-        //     }
-        // });
         setEnteredTitle(e.target.value);
     };
 
     const amountChangeHandler = (e) => {
-        // setUserInput({
-        //     ...userInput,
-        //     enteredAmount: e.target.value,
-        // });
         setEnteredAmount(e.target.value);
     };
 
     const dateChangeHandler = (e) => {
-        // setUserInput({
-        //     ...userInput,
-        //     enteredDate: e.target.value,
-        // });
         setEnteredDate(e.target.value);
     };
 
@@ -50,13 +29,19 @@ const ExpenseForm = (props) => {
             date: new Date(enteredDate + "T00:00:00"),
         };
 
-        // execute here to access the fn in NewExpense
         props.onSaveExpenseData(expenseData);
+        props.buttonOrForm('button')
 
         setEnteredTitle("");
         setEnteredAmount("");
         setEnteredDate("");
     };
+
+    const cancelHandler = (e) => {
+        e.preventDefault()
+
+        props.buttonOrForm('button')
+    }
 
     return (
         <form onSubmit={submitHandler}>
@@ -92,6 +77,7 @@ const ExpenseForm = (props) => {
             </div>
 
             <div className="new-expense__actions">
+                <button onClick={cancelHandler}>Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
         </form>
