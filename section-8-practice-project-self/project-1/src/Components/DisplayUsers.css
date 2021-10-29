@@ -1,0 +1,22 @@
+.users-container {
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    margin: 25px auto;
+    padding: 5px 0;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.user-list-item {
+    text-transform: capitalize;
+    list-style: none;
+    margin: 5px auto;
+    padding: 5px 10px;
+    border: 1px solid rgb(170, 170, 170);
+    width: 90%;
+}

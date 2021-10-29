@@ -1,0 +1,33 @@
+.input-container {
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.input-form {
+    margin: 10px auto;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+label {
+    font-weight: bold;
+}
+
+#username-input {
+    margin: 5px 0 20px 0;    
+}
+
+#age-input {
+    margin: 5px 0 10px 0;
+}
+
+.input-button {
+    width: 100px;
+    height: 25px;
+    background-color: rgb(13, 13, 148);
+    color: white;
+}

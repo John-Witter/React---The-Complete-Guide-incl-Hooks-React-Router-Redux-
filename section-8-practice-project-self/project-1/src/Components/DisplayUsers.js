@@ -1,10 +1,12 @@
+import "./DisplayUsers.css"
+
 const DisplayUsers = (props) => {
     return (
-        <div>
-            <ul>
+        <div className="users-container">
+            <ul className="users-list">
                 {props.users.length > 0 && props.users.map(user=> {
                     return (
-                        <li>
+                        <li className="user-list-item" key={Math.random()}>
                             {`${user.name} (${user.age} years old)`}
                         </li>
                     )
