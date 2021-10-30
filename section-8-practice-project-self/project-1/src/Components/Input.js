@@ -8,9 +8,21 @@ const Input = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        if (age < 0) {
+            window.alert("Invalid Entry: Age Must Be 0 Or Greater")
+            setAge("")
+            return
+        }
+
+        if (username === "" || age === "") {
+            window.alert("Invalid Entry: Username & Age Must Not Be Empty")
+            return
+        }
+
         const user = {
             name: username,
             age: age,
+            id: Math.random() * 100
         };
 
         props.onAddUser(user)
