@@ -10,10 +10,8 @@ function App() {
     };
 
     const deleteItemHandler = (userId) => {
-        console.log('userId:', userId)
         setUsers((prevUsers) => {
             const updatedUsers = prevUsers.filter(user => user.id !== userId)
-            console.log('udpatedUsers:', updatedUsers)
             return updatedUsers
         });
     };
