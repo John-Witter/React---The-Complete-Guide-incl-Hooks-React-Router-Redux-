@@ -11,8 +11,25 @@ const AddUser = () => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
+
+        // validate input
+        // no empty values, age >= 1
+        if (
+            enteredUsername.trim().length === 0 ||
+            enteredAge.trim().length === 0
+        ) {
+            return;
+        }
+
+        if (+enteredAge < 1) {
+            // the "+" forces enteredAge to be a Number0
+            return;
+        }
+
         console.log("enteredUsername:", enteredUsername);
         console.log("enteredage:", enteredAge);
+        setEnteredUsername("");
+        setEnteredAge("");
     };
 
     const usernameChangeHandler = (event) => {
@@ -30,10 +47,16 @@ const AddUser = () => {
                 <input
                     id="username"
                     type="text"
+                    value={enteredUsername}
                     onChange={usernameChangeHandler}
                 />
                 <label htmlFor="age">Age</label>
-                <input id="age" type="text" onChange={ageChangeHandler} />
+                <input
+                    id="age"
+                    type="text"
+                    value={enteredAge}
+                    onChange={ageChangeHandler}
+                />
                 <Button type="submit">Add User</Button>
             </form>
         </Card>
