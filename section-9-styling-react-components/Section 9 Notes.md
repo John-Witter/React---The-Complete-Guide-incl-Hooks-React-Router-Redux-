@@ -45,6 +45,36 @@ and closing tag of a component (built-in or custom)
 
 ## React Fragments
 
-```javascript
+* Built-in wrapper component
+* Fragemnts are an **empty wrapper component**. 
+    * **Doesn't render** any real HTML element to the DOM
+* Removes unnecessary divs
 
+```javascript
+import { Fragment } from 'react';
+return (
+    <Fragment>
+        <h2>Hi there!</h2>
+        <p>This does not work :-(</p>
+    </Fragment>
+);
+
+
+//  OR
+
+return (
+    <React.Fragment>
+        <h2>Hi there!</h2>
+        <p>This does not work :-(</p>
+    </React.Fragment>
+);
+
+//  OR
+
+return (
+    <>
+        <h2>Hi there!</h2>
+        <p>This does not work :-(</p>
+    </>
+);
 ```

@@ -17,12 +17,12 @@ function App() {
   };
 
   return (
-      <div>
+      <>
        {/* <Wrapper> */}
           <AddUser onAddUser={addUserHandler} />
           <UsersList users={usersList} />
       {/* </Wrapper> */}
-      </div>
+      </>
   );
 }
 
