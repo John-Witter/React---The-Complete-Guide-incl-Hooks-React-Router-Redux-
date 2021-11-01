@@ -78,3 +78,14 @@ return (
     </>
 );
 ```
+
+## React Portals
+* Port components to a place on the DOM
+* Render the HTML content to a specific part of the DOM
+1. You need a place to port to
+2. On the component should know to have a portal to the other component
+* Similar to Fragments
+* Imagine you have a modal that overalys the entire page.
+    * Semantically this element should be higher up on the DOM than other elements
+
+Checkout the portal from ErrorModal.js to index.html
