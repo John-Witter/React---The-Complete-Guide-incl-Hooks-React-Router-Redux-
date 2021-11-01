@@ -37,7 +37,13 @@
 * GOTCHA: "key" is needed for each element in the array
     * Wrapping in a div is more convenient
 
+3. **Create a "Wrapper" element that returns props.children (see Wrapper.js)**
+* The children prop contains all the content passed between the opening
+and closing tag of a component (built-in or custom)
+* This eliminates a div from the DOM and cleans up the Elements tab in dev tools
+4. 
 
+## React Fragments
 
 ```javascript
 
