@@ -77,6 +77,8 @@ return (
         <p>This does not work :-(</p>
     </>
 );
+
+// NOTE: THIS SYNTAX DOESN'T SUPPORT KEYS, <REACT.FRAGMENT> SYNTAX DOES
 ```
 
 ## React Portals
