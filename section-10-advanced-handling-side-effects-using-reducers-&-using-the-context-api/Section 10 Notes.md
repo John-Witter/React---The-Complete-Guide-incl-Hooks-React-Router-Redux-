@@ -142,3 +142,28 @@ useEffect(() => {
 // check the console.logs in the browsers dev tools to get 
 // a better understanding of when the cleanup function runs
 ```
+
+## useEffect Summary Code Examples
+
+```javascript
+    // this runs each time the component mounts, for every state update, and
+    // on unmount
+    useEffect(() => {
+        console.log("EFFECT RUNNING");
+    });
+
+    // this runs only on the first render
+     useEffect(() => {
+         console.log("EFFECT RUNNING ON 1st RENDER");
+     }, []);
+    
+    
+     // this runs on the first render and each time enteredEmail changes
+     useEffect(() => {
+         console.log("EFFECT RUNNING AFTER enteredEmail CHANGES");
+         
+         // this runs before the rest of the useEffect, after the 1st render
+         return () => console.log('CCCCLLLLEEEEAAAANNNNUUUUPPPP')
+     }, [enteredEmail]);
+
+```

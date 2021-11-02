@@ -35,15 +35,35 @@ const Login = (props) => {
         setPasswordIsValid(enteredPassword.trim().length > 6);
     };
 
-    // add useEffect to have 1 place where the form is validated
+    // this runs each time the component mounts, for every state update, and
+    // on unmount
+    useEffect(() => {
+        console.log("EFFECT RUNNING");
+    });
+
+    // this runs only on the first render
+     useEffect(() => {
+         console.log("EFFECT RUNNING ON 1st RENDER");
+     }, []);
+    
+    
+     // this runs on the first render and each time enteredEmail changes
+     useEffect(() => {
+         console.log("EFFECT RUNNING AFTER enteredEmail CHANGES");
+         
+         // this runs before the rest of the useEffect, after the 1st render
+         return () => console.log('CCCCLLLLEEEEAAAANNNNUUUUPPPP')
+     }, [enteredEmail]);
+
+    
+     // add useEffect to have 1 place where the form is validated
     useEffect(() => {
         const timer = setTimeout(() => {
-            console.log("CHECKING FORM VALIDITY!")
+            console.log("CHECKING FORM VALIDITY!");
             setFormIsValid(
                 enteredEmail.includes("@") && enteredPassword.trim().length > 6
             );
         }, 500);
-
 
         //clear the timeout after each keystroke so that there is only 1 timer
         // only call the fn in timer if the user stops typing for .5 seconds
@@ -52,7 +72,6 @@ const Login = (props) => {
             console.log("CLEANUP FUNCTION RAN");
             clearTimeout(timer);
         };
-
     }, [enteredEmail, enteredPassword]); // dependencies
 
     const submitHandler = (event) => {
