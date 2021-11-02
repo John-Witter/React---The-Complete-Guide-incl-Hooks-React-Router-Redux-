@@ -86,7 +86,59 @@ function App() {
     };
 ```
 
+-   NOTE: The above useEffect has NO DEPENDENCIES
+    -   This makes the useEffect run only once, on the first render
+        -   This is because the useEffect's dependencies never change (it has none)
 
-* NOTE: The above useEffect has NO DEPENDENCIES
-    * This makes the useEffect run only once, on the first render
-        * This is because the useEffect's dependencies never change (it has none)
+## useEffect w/dependencies
+
+```javascript
+// from Login.js
+// add useEffect to have 1 place where the form is validated
+// this code is a side effect of user enterred data
+useEffect(() => {
+    setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+    );
+}, [enteredEmail, enteredPassword]); // dependencies
+```
+
+    useEffect is often used when when certain data,
+    typically some state or some props change.
+
+## useEffect Cleanup Function
+
+    These functions are typically anonymous arrow functions
+    returned by the useEffect
+
+    The Cleanup Function runs every time the useEffect runs, except for the 1st time!
+
+    The Cleanup Function also runs when the component it is in unmounts from the DOM
+    (i.e. whenever the component is resused)
+
+### **[Debouncing](https://medium.com/swlh/debouncing-in-react-js-83befe93a5ee)**
+
+    "Ensure that a time-consuming task does not fire so often.
+     In other words, it limits rates at which functions get invoked."
+
+```javascript
+useEffect(() => {
+    const timer = setTimeout(() => {
+        console.log("CHECKING FORM VALIDITY!");
+        setFormIsValid(
+            enteredEmail.includes("@") && enteredPassword.trim().length > 6
+        );
+    }, 500);
+
+    //clear the timeout after each keystroke so that there is only 1 timer
+    // only call the fn in timer if the user stops typing for .5 seconds
+    // useEffect cleanup function
+    return () => {
+        console.log("CLEANUP FUNCTION RAN");
+        clearTimeout(timer);
+    };
+}, [enteredEmail, enteredPassword]); // dependencies
+
+// check the console.logs in the browsers dev tools to get 
+// a better understanding of when the cleanup function runs
+```
