@@ -167,3 +167,33 @@ useEffect(() => {
      }, [enteredEmail]);
 
 ```
+
+
+# useReducer
+    Similar to useState
+
+    Used when updating a state depends on another state, instead of using useState,
+    merge the states into a reducer w/useReducer
+
+    useReducer combines multiple related states
+
+```javascript
+// useReducer returns an array w/2 values
+const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+
+// state=latest state snapshot
+// dispatchFn = fn to update state / dispatch a new action
+// reducerFn is triggered automatically when an action is dispatched
+// reducerFn receives latest state snapshot & returns new, updated state
+// iniFn is used to set initial state programmatically
+```
+
+### Dispatch an action w/ dispatchFN    
+
+### reducerFn
+    reducerFn accepts 2 args: prevState, action
+    reducerFn returns updated state
+
+
+## Use useReducer to combine the value and validity of email input in Login.js into one state
+
