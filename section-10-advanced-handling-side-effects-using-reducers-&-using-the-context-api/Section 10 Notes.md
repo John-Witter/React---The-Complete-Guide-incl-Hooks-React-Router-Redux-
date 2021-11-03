@@ -197,3 +197,14 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 
 ## Use useReducer to combine the value and validity of email input in Login.js into one state
 
+</br>
+</br>
+</br>
+
+# useReducer vs useState
+
+| useState | useReducer |
+| ---- | ---- |
+| The main state management tool | Great if you need "more power" |
+| Great for independent pieces of state / data | Should be considered if you have related pieces of state / data |
+| Great if state updates are easy & limited to a few kinds of updates | Can be helpful if you have more complex state updates |
